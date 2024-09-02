@@ -3,8 +3,9 @@ const router = express.Router()
 
 const mercados = require("../controllers/mercados.js")
 const cep_endereco = require("../middlewares/cep_endereco.js");
+const nomezator = require("../middlewares/nomezator.js")
 
-router.post("/",cep_endereco, (req, res) => {
+router.post("/",cep_endereco,nomezator, (req, res) => {
     const body = req.body;
     const code = mercados.store(body);
     res.status(code).json();
