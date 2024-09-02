@@ -2,8 +2,9 @@ const express = require("express")
 const router = express.Router()
 
 const produtos = require("../controllers/produtos.js")
+const nomezator = require("../middlewares/nomezator.js")
 
-router.post("/", (req, res) => {
+router.post("/", nomezator,  (req, res) => {
     const body = req.body;
     const code = produtos.store(body);
     res.status(code).json();
