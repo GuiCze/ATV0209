@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 
 const fornecedores = require("../controllers/fornecedores.js")
-const nomezator = require("../middlewares/nomezator.js")
+const nomezator = require("../middlewares/nomezator.js");
 
 router.post("/",nomezator, (req, res) => {
     const body = req.body;
@@ -20,7 +20,7 @@ router.get("/:id", (req, res) => {
     res.json(code);
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", nomezator,  (req, res) => {
     const body = req.body;
     const code = fornecedores.update(body, req.params.id);
     res.status(code).json();

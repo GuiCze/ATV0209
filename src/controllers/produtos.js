@@ -15,7 +15,7 @@ const show = (id) => db.find((el) => el.id == id);
 
 const index = () => db;
 
-const update = (id) => {
+const update = (body, id) => {
     const index = db.findIndex((el) => el.id == id);
     const novo = model(body, parseInt(id));
     if(index != -1 && novo){

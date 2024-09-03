@@ -6,6 +6,7 @@ const model = (body, id=proximoId++) => {
     if(body.nome != undefined &&
        body.nome != "" &&
        body.quantidade > 0 &&
+       !isNaN(Number(body.quantidade)) &&
        mercados.show(body.mercado_id) &&
        fornecedores.show(body.fornecedor_id)
     ){
@@ -13,7 +14,7 @@ const model = (body, id=proximoId++) => {
             id: id,
             nome: body.nome,
             quantidade: body.quantidade,
-            mercado: body.mercado_id,
+            mercado_id: body.mercado_id,
             fornecedor_id: body.fornecedor_id,
             }
         }
