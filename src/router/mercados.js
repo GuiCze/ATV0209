@@ -21,7 +21,7 @@ router.get("/:id", (req, res) => {
     res.json(code);
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id",nomezator,cep_endereco,  (req, res) => {
     const body = req.body;
     const code = mercados.update(body, req.params.id);
     res.status(code).json();
